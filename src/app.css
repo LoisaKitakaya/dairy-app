@@ -1,3 +1,33 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css');
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Caprasimo&family=Exo&family=Permanent+Marker&display=swap');
+
+/* 
+font-family: 'Belanosima', sans-serif;
+font-family: 'Caprasimo', cursive;
+font-family: 'Exo', sans-serif;
+font-family: 'Permanent Marker', cursive;
+*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+section {
+	min-height: 76vh !important;
+}
+
+.header-one {
+	font-family: 'Belanosima', sans-serif !important;
+}
+
+.header-two {
+	font-family: 'Caprasimo', cursive !important;
+}
+
+.header-three {
+	font-family: 'Exo', sans-serif !important;
+}
+
+.header-four {
+	font-family: 'Permanent Marker', cursive !important;
+}
