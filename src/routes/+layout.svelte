@@ -31,7 +31,7 @@
 					>
 				</li>
 				<li>
-					<a href="/customer" class="flex items-center justify-start gap-2"
+					<a href="/customers" class="flex items-center justify-start gap-2"
 						><i class="bi bi-people text-lg" /> <span>Customers</span></a
 					>
 				</li>
@@ -93,11 +93,6 @@
 				tabindex="0"
 				class="menu menu-sm dropdown-content mt-4 z-[1] p-2 bg-base-200 shadow-sm rounded-box w-36"
 			>
-				<li>
-					<a href="/profile" class="flex items-center justify-start gap-2"
-						><i class="bi bi-person-circle text-lg" /> <span>Profile</span></a
-					>
-				</li>
 				<li>
 					<a href="/themes" class="flex items-center justify-start gap-2"
 						><i class="bi bi-palette text-lg" /> <span>Themes</span></a
