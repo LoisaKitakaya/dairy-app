@@ -6,7 +6,16 @@ export default {
 	},
 	plugins: [require('@tailwindcss/typography'), require('daisyui')],
 	daisyui: {
-		themes: ['fantasy', 'dracula', 'retro', 'cyberpunk', 'valentine', 'aqua'],
+		themes: [
+			'fantasy',
+			'dracula',
+			'retro',
+			'luxury',
+			'cyberpunk',
+			'aqua',
+			'valentine',
+			'synthwave'
+		],
 		darkTheme: 'dracula',
 		base: true,
 		styled: true,

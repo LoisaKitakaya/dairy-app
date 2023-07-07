@@ -13,7 +13,7 @@ font-family: 'Permanent Marker', cursive;
 @tailwind utilities;
 
 section {
-	min-height: 76vh !important;
+	min-height: 77vh !important;
 }
 
 .header-one {
