@@ -20,3 +20,15 @@ export const decodeToken = (event) => {
 
 	return null;
 };
+
+export const decodeResetLink = (token) => {
+	let payload = null;
+
+	try {
+		payload = decode(token, salt);
+	} catch (err) {
+		console.log(err);
+	}
+
+	return payload;
+};
