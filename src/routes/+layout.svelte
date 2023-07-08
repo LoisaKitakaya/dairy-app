@@ -1,10 +1,9 @@
 <script>
 	import '../app.css';
-	import PageTitle from '$lib/components/misc/pageTitle.svelte';
 </script>
 
 <svelte:head>
-	<PageTitle title="Rislo Farm" icon="🚀" />
+	<title>Rislo Farm | Web App</title>
 </svelte:head>
 
 <slot />
