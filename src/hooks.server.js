@@ -1,4 +1,8 @@
-export const handle = async ({ event, resolve }) => {
+import { sequence } from '@sveltejs/kit/hooks';
+import { decodeToken } from './lib/server/decode';
+import { redirect } from '@sveltejs/kit';
+
+export const handleTheme = async ({ event, resolve }) => {
 	let theme = null;
 
 	const newTheme = event.url.searchParams.get('theme');
@@ -18,3 +22,19 @@ export const handle = async ({ event, resolve }) => {
 
 	return await resolve(event);
 };
+
+export const handleAuth = async ({ event, resolve }) => {
+	const payload = decodeToken(event);
+
+	event.locals.user = payload;
+
+	if (event.url.pathname.startsWith('/app')) {
+		if (!event.locals.user) {
+			throw redirect(303, '/');
+		}
+	}
+
+	return await resolve(event);
+};
+
+export const handle = sequence(handleTheme, handleAuth);

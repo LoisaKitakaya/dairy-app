@@ -1,3 +1,9 @@
+<script>
+	export let data;
+
+	const { user } = data;
+</script>
+
 <div
 	class="hero min-h-screen"
 	style="background-image: url(https://images.pexels.com/photos/13317661/pexels-photo-13317661.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);"
@@ -9,10 +15,12 @@
 			<p class="mb-5 text-xl">
 				"Discover the Bounty of Nature: Where Farm Fresh Dreams Come to Life!"
 			</p>
-			<div class="flex justify-center items-center gap-4">
-				<a href="/register" class="btn btn-sm btn-primary">Sign Up</a>
-				<a href="/login" class="btn btn-sm btn-primary">Sign In</a>
-			</div>
+			{#if !user}
+				<div class="flex justify-center items-center gap-4">
+					<a href="/register" class="btn btn-sm btn-primary">Sign Up</a>
+					<a href="/login" class="btn btn-sm btn-primary">Sign In</a>
+				</div>
+			{/if}
 		</div>
 	</div>
 </div>
