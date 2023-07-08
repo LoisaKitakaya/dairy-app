@@ -18,7 +18,7 @@
 					result.data.success === true
 						? toast.success(result.data.message)
 						: toast.error(result.data.message);
-                        
+
 					update();
 				};
 			}}
