@@ -2,6 +2,21 @@
 
 // Queries
 
+export const ALL_PRODUCTION_RECORDS = {
+	query: `query get_all_production_records {
+    get_all_production_records {
+      _id
+      name
+      morning_production
+      afternoon_production
+      evening_production
+      production_date
+      created_on
+      updated_on
+    }
+  }`
+};
+
 // Mutations
 
 export const CREATE_USER = {
