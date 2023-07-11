@@ -6,6 +6,7 @@
 	import TableEditable from '$lib/components/production/TableEditable.svelte';
 	import NewRecord from '$lib/components/production/NewRecord.svelte';
 	import toast, { Toaster } from 'svelte-french-toast';
+	import LineChart from '../../../../lib/components/charts/LineChart.svelte';
 
 	export let data;
 	export let form;
@@ -57,6 +58,8 @@
 		{#if productionData.length > 0}
 			{#if !$toggle}
 				<ProductionTable data={td} />
+				<div class="my-4" />
+				<LineChart data={td} />
 			{:else}
 				<TableEditable data={td} />
 			{/if}
