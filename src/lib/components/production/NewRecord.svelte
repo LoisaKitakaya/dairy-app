@@ -14,7 +14,8 @@
 		<div class="mb-4">
 			<label for="name" class="px-1">Morning</label>
 			<input
-				type="text"
+				type="number"
+                step="0.01"
 				name="morning"
 				placeholder="morning production"
 				class="input input-bordered w-full"
@@ -23,7 +24,8 @@
 		<div class="mb-4">
 			<label for="name" class="px-1">Afternoon</label>
 			<input
-				type="text"
+				type="number"
+                step="0.01"
 				name="noon"
 				placeholder="afternoon production"
 				class="input input-bordered w-full"
@@ -32,7 +34,8 @@
 		<div class="mb-4">
 			<label for="name" class="px-1">Evening</label>
 			<input
-				type="text"
+				type="number"
+                step="0.01"
 				name="evening"
 				placeholder="evening production"
 				class="input input-bordered w-full"
@@ -41,7 +44,7 @@
 		<div class="mb-4">
 			<label for="name" class="px-1">Date</label>
 			<input
-				type="text"
+				type="datetime-local"
 				name="date"
 				placeholder="date of production"
 				class="input input-bordered w-full"

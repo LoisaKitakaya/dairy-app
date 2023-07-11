@@ -5,8 +5,14 @@
 	import EditMode from '$lib/components/globals/EditMode.svelte';
 	import TableEditable from '$lib/components/production/TableEditable.svelte';
 	import NewRecord from '$lib/components/production/NewRecord.svelte';
+	import toast, { Toaster } from 'svelte-french-toast';
 
 	export let data;
+	export let form;
+
+	if (form) {
+		form.success === true ? toast.success(form.message, {style: ""}) : toast.error(form.message);
+	}
 
 	const { production } = data;
 
@@ -73,3 +79,5 @@
 		<NewRecord />
 	</div>
 </dialog>
+
+<Toaster />

@@ -1,6 +1,7 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import { page, rows } from '$lib/store.js';
+	import moment from 'moment';
 
 	export let data;
 
@@ -57,7 +58,9 @@
 	};
 
 	const updateDate = (event) => {
-		dateUpdate = event.target.value;
+		let newDate = event.target.value.replace(/-/g, '');
+
+		dateUpdate = moment(newDate, 'YYYYMMDD').format('YYYY-MM-DDTHH:MM');
 	};
 </script>
 
@@ -138,7 +141,7 @@
 							step="0.01"
 							placeholder="Type here"
 							class="input input-sm w-fit sm:w-full max-w-xs text-center"
-                            readonly
+							readonly
 							bind:value={item.total}
 						/></td
 					>
@@ -155,7 +158,7 @@
 						><form method="POST">
 							<button
 								class="btn btn-sm btn-secondary"
-								formaction="/?/updateProdRecord&id={item.id}&name={nameUpdate
+								formaction="?/updateProdRecord&id={item.id}&name={nameUpdate
 									? nameUpdate
 									: item.name}&morning={morningUpdate
 									? morningUpdate.toString()
@@ -170,7 +173,7 @@
 					>
 					<td
 						><form method="POST">
-							<button class="btn btn-sm btn-error" formaction="/?/deleteProdRecord&id={item.id}"
+							<button class="btn btn-sm btn-error" formaction="?/deleteProdRecord&id={item.id}"
 								><i class="bi bi-trash" /></button
 							>
 						</form></td

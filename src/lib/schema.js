@@ -42,3 +42,34 @@ export const PASSWORD_RESET = {
     password_reset(email: $email, new_password: $new_password)
   }`
 };
+
+export const CREATE_PRODUCTION_RECORD = {
+	query: `mutation create_production_record($name: String!, $morning_production: String!, $afternoon_production: String!, $evening_production: String!, $production_date: String!) {
+    create_production_record(
+      name: $name
+      morning_production: $morning_production
+      afternoon_production: $afternoon_production
+      evening_production: $evening_production
+      production_date: $production_date
+    )
+  }`
+};
+
+export const UPDATE_PRODUCTION_RECORD = {
+	query: `mutation update_production_record($id: ID!, $name: String!, $morning_production: String!, $afternoon_production: String!, $evening_production: String!, $production_date: String!) {
+    update_production_record(
+      id: $id
+      name: $name
+      morning_production: $morning_production
+      afternoon_production: $afternoon_production
+      evening_production: $evening_production
+      production_date: $production_date
+    )
+  }`
+};
+
+export const DELETE_PRODUCTION_RECORD = {
+	query: `mutation delete_production_record($id: ID!) {
+    delete_production_record(id: $id)
+  }`
+};
