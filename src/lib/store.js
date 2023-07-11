@@ -1,3 +1,16 @@
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
-export const tableData = writable([])
+const createToggle = () => {
+	const { subscribe, update } = writable(false);
+
+	return {
+		subscribe,
+		toggle: () => update((val) => !val)
+	};
+};
+
+export const toggle = createToggle();
+
+export const page = writable(1);
+
+export const rows = writable(10);

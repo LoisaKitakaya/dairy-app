@@ -1,6 +1,9 @@
 <script>
 	import moment from 'moment';
+	import { toggle } from '$lib/store.js';
 	import ProductionTable from '$lib/components/production/ProductionTable.svelte';
+	import EditMode from '$lib/components/globals/EditMode.svelte';
+	import TableEditable from '$lib/components/production/TableEditable.svelte';
 
 	export let data;
 
@@ -24,7 +27,7 @@
 				noon: item.afternoon_production.toFixed(2),
 				evening: item.evening_production.toFixed(2),
 				total: total.toFixed(2),
-				date: moment.unix(item.production_date).format('YYYY-MM-DD')
+				date: moment.unix(item.production_date).format('YYYY-MM-DD').toString()
 			};
 		});
 	} else {
@@ -35,12 +38,19 @@
 <section class="pt-20 pb-8 px-6 sm:px-4">
 	<div class="flex justify-between items-center my-4 gap-4 sm:gap-0">
 		<h1 class="text-xl font-semibold text-center sm:text-left">Milk Production</h1>
-		<button class="btn btn-sm btn-active btn-ghost"><i class="bi bi-plus-lg" /> New</button>
+		<div class="flex justify-end items-center gap-4">
+			<EditMode />
+			<button class="btn btn-sm btn-active btn-ghost"><i class="bi bi-plus-lg" /> New</button>
+		</div>
 	</div>
 
 	{#if !error}
 		{#if productionData.length > 0}
-			<ProductionTable data={td} />
+			{#if !$toggle}
+				<ProductionTable data={td} />
+			{:else}
+				<TableEditable data={td} />
+			{/if}
 		{:else}
 			<h1 class="text-center text-xl underline my-36">
 				0 records found. Click the '<i class="bi bi-plus-lg" /> New' button to create new records.

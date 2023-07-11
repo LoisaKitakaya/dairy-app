@@ -71,7 +71,7 @@
 </div>
 
 <div
-	class="flex justify-between sm:justify-end gap-4 items-center flex-col sm:flex-row mt-4 sm:mt-0"
+	class="flex justify-between sm:justify-center gap-4 items-center flex-col sm:flex-row mt-4 sm:mt-0"
 >
 	<div class="flex justify-end items-center gap-2">
 		<label for="page-size">Page size:</label>
