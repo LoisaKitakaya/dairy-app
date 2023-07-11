@@ -4,6 +4,7 @@
 	import ProductionTable from '$lib/components/production/ProductionTable.svelte';
 	import EditMode from '$lib/components/globals/EditMode.svelte';
 	import TableEditable from '$lib/components/production/TableEditable.svelte';
+	import NewRecord from '$lib/components/production/NewRecord.svelte';
 
 	export let data;
 
@@ -40,7 +41,9 @@
 		<h1 class="text-xl font-semibold text-center sm:text-left">Milk Production</h1>
 		<div class="flex justify-end items-center gap-4">
 			<EditMode />
-			<button class="btn btn-sm btn-active btn-ghost"><i class="bi bi-plus-lg" /> New</button>
+			<button class="btn btn-sm btn-active btn-ghost" onclick="new_prod_record.showModal()"
+				><i class="bi bi-plus-lg" /> New</button
+			>
 		</div>
 	</div>
 
@@ -60,3 +63,13 @@
 		<h1 class="text-center text-xl underline my-36 text-error">Error: {error}</h1>
 	{/if}
 </section>
+
+<dialog id="new_prod_record" class="modal modal-bottom sm:modal-middle">
+	<div class="modal-box">
+		<button
+			class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2"
+			onclick="new_prod_record.close()">✕</button
+		>
+		<NewRecord />
+	</div>
+</dialog>
