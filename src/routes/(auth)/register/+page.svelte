@@ -1,6 +1,11 @@
 <script>
-	import { enhance } from '$app/forms';
 	import toast, { Toaster } from 'svelte-french-toast';
+
+	export let form;
+
+	if (form) {
+		form.success === true ? toast.success(form.message) : toast.error(form.message);
+	}
 </script>
 
 <div class="flex min-h-full flex-col justify-center px-6 py-12 items-center">
@@ -8,18 +13,7 @@
 		<h2 class="text-2xl font-bold leading-9 tracking-tight">Sign up for a new account</h2>
 	</div>
 	<div class="mt-10 mx-auto max-w-sm">
-		<form
-			class="space-y-6 bg-base-200 px-4 py-6 rounded-md"
-			method="POST"
-			use:enhance={({ formElement }) => {
-				return async ({ result, update }) => {
-					if (result.data) {
-						toast.error(result.data.message);
-					}
-					update();
-				};
-			}}
-		>
+		<form class="space-y-6 bg-base-200 px-4 py-6 rounded-md" method="POST">
 			<div>
 				<label for="email" class="block text-sm font-medium leading-6">Username</label>
 				<div class="mt-2">

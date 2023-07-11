@@ -1,12 +1,15 @@
 <script>
-	import { enhance } from '$app/forms';
 	import toast, { Toaster } from 'svelte-french-toast';
 
-	let success = false;
+	export let form;
+
+	if (form) {
+		form.success === true ? toast.success(form.message) : toast.error(form.message);
+	}
 </script>
 
 <div class="flex min-h-full flex-col justify-center px-6 py-12 items-center">
-	{#if success}
+	{#if form.success === true}
 		<div class="mt-10 mx-auto max-w-sm">
 			<p class="mt-10 text-center">
 				Back to <a href="/login" class="link font-semibold">Login</a>.
@@ -19,23 +22,7 @@
 			</h2>
 		</div>
 		<div class="mt-10 mx-auto max-w-sm">
-			<form
-				class="space-y-6 bg-base-200 px-4 py-6 rounded-md"
-				method="POST"
-				use:enhance={({ formElement }) => {
-					return async ({ result, update }) => {
-						if (result.data.success === true) {
-							toast.success(result.data.message);
-
-							success = true;
-						} else {
-							toast.error(result.data.message);
-						}
-
-						update();
-					};
-				}}
-			>
+			<form class="space-y-6 bg-base-200 px-4 py-6 rounded-md" method="POST">
 				<div>
 					<label for="password" class="block text-sm font-medium leading-6">New password</label>
 					<div class="mt-2">

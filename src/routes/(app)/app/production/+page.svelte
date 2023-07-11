@@ -11,7 +11,7 @@
 	export let form;
 
 	if (form) {
-		form.success === true ? toast.success(form.message, {style: ""}) : toast.error(form.message);
+		form.success === true ? toast.success(form.message) : toast.error(form.message);
 	}
 
 	const { production } = data;

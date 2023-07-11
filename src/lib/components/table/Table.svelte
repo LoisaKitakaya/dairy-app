@@ -1,6 +1,5 @@
 <script>
 	import { Subscribe, Render } from 'svelte-headless-table';
-	import { fade } from 'svelte/transition';
 
 	export let headerRows,
 		tableAttrs,
@@ -30,7 +29,7 @@
 	</thead>
 </table>
 
-<div class="overflow-x-auto" transition:fade>
+<div class="overflow-x-auto">
 	<table {...$tableAttrs} class="table table-pin-rows text-center mb-4">
 		<thead>
 			{#each $headerRows as headerRow (headerRow.id)}

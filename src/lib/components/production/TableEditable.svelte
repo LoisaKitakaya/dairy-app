@@ -1,5 +1,4 @@
 <script>
-	import { fade } from 'svelte/transition';
 	import { page, rows } from '$lib/store.js';
 	import moment from 'moment';
 
@@ -79,7 +78,7 @@
 	</thead>
 </table>
 
-<div class="overflow-x-auto" transition:fade>
+<div class="overflow-x-auto">
 	<table class="table table-pin-rows text-center mb-4">
 		<thead>
 			<tr class="bg-base-300 text-base-content">
