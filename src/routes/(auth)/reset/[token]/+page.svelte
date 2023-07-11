@@ -9,12 +9,14 @@
 </script>
 
 <div class="flex min-h-full flex-col justify-center px-6 py-12 items-center">
-	{#if form.success === true}
-		<div class="mt-10 mx-auto max-w-sm">
-			<p class="mt-10 text-center">
-				Back to <a href="/login" class="link font-semibold">Login</a>.
-			</p>
-		</div>
+	{#if form}
+		{#if form.success === true}
+			<div class="mt-10 mx-auto max-w-sm">
+				<p class="mt-10 text-center">
+					Back to <a href="/login" class="link font-semibold">Login</a>.
+				</p>
+			</div>
+		{/if}
 	{:else}
 		<div class="mx-auto max-w-sm">
 			<h2 class="mt-10 text-2xl text-center font-bold leading-9 tracking-tight">
