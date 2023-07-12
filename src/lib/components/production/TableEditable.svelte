@@ -61,6 +61,12 @@
 
 		dateUpdate = moment(newDate, 'YYYYMMDD').format('YYYY-MM-DDTHH:MM');
 	};
+
+	const sameDate = (oldDate) => {
+		let newDate = oldDate.replace(/-/g, '');
+
+		return moment(newDate, 'YYYYMMDD').format('YYYY-MM-DDTHH:MM');
+	};
 </script>
 
 <table class="table">
@@ -165,7 +171,9 @@
 									? afternoonUpdate.toString()
 									: item.noon}&evening={eveningUpdate
 									? eveningUpdate.toString()
-									: item.evening}&date={dateUpdate ? dateUpdate.toString() : item.date.toString()}"
+									: item.evening}&date={dateUpdate
+									? dateUpdate.toString()
+									: (dateUpdate = sameDate(item.date).toString())}"
 								><i class="bi bi-arrow-repeat" /></button
 							>
 						</form></td

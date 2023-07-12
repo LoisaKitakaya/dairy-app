@@ -6,7 +6,8 @@
 	import TableEditable from '$lib/components/production/TableEditable.svelte';
 	import NewRecord from '$lib/components/production/NewRecord.svelte';
 	import toast, { Toaster } from 'svelte-french-toast';
-	import LineChart from '../../../../lib/components/charts/LineChart.svelte';
+	import LineChart from '$lib/components/charts/LineChart.svelte';
+	import { getUniqueNames } from '$lib/charts.js';
 
 	export let data;
 	export let form;
@@ -21,6 +22,7 @@
 	let error;
 
 	let td = [];
+	let uniqueNames = [];
 
 	if (production.data !== null) {
 		productionData = production.data.get_all_production_records;
@@ -38,6 +40,8 @@
 				date: moment.unix(item.production_date).format('YYYY-MM-DD').toString()
 			};
 		});
+
+		uniqueNames = getUniqueNames(productionData);
 	} else {
 		error = production.errors[0].message;
 	}
@@ -58,8 +62,16 @@
 		{#if productionData.length > 0}
 			{#if !$toggle}
 				<ProductionTable data={td} />
-				<div class="my-4" />
-				<LineChart data={td} />
+				<div class="mt-8">
+					<details class="collapse bg-base-200">
+						<summary class="collapse-title text-lg"
+							>Milk Production Chart - Click to open/close</summary
+						>
+						<div class="collapse-content">
+							<LineChart data={td} labels={uniqueNames} />
+						</div>
+					</details>
+				</div>
 			{:else}
 				<TableEditable data={td} />
 			{/if}
