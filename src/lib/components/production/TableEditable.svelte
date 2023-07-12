@@ -20,15 +20,15 @@
 	const nextPage = () => {
 		current_page++;
 
-		if (current_page > paginatedItems.length) {
-			current_page = paginatedItems.length - 1;
+		if (current_page >= paginatedItems.length) {
+			current_page = pageCount + 1;
 		}
 	};
 
 	const previousPage = () => {
 		current_page--;
 
-		if (current_page == 0) {
+		if (current_page <= 0) {
 			current_page = 1;
 		}
 	};

@@ -4,6 +4,10 @@ export const getUniqueNames = (arr) => {
 	return [...new Set(arr.map((obj) => obj.name))];
 };
 
+export const getUniqueDates = (arr) => {
+	return [...new Set(arr.map((obj) => obj.date))];
+};
+
 export const filterByName = (arr, name) => {
 	return arr.filter((obj) => obj.name === name);
 };

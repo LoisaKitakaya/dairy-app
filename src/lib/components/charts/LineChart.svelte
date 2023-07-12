@@ -1,7 +1,7 @@
 <script>
 	import Chart from 'chart.js/auto';
 	import { onMount } from 'svelte';
-	import { organizeByName, getColor } from '$lib/charts.js';
+	import { organizeByName, getColor, getUniqueDates } from '$lib/charts.js';
 
 	export let data;
 	export let labels;
@@ -10,11 +10,13 @@
 
 	let dataArr = organizeByName(data, labels);
 
+	let uniqueDates = getUniqueDates(data);
+
 	onMount(() => {
 		new Chart(ctx, {
 			type: 'line',
 			data: {
-				labels: dataArr[dataArr.length - 1].map(() => '🔥'),
+				labels: uniqueDates.map((item) => item),
 				datasets: dataArr.map((dataset) => {
 					return {
 						label: dataset[0].name,
