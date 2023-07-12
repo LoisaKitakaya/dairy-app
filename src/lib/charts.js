@@ -25,3 +25,14 @@ export const getColor = () => {
 
 	return color;
 };
+
+// chart colors
+
+export const chartColors = [
+	{ fg: 'rgb(255, 0, 102)', bg: 'rgb(255, 0, 102, 0.175)' },
+	{ fg: 'rgb(0, 102, 153)', bg: 'rgb(0, 102, 153, 0.175)' },
+	{ fg: 'rgb(51, 204, 51)', bg: 'rgb(51, 204, 51, 0.175)' },
+	{ fg: 'rgb(255, 153, 0)', bg: 'rgb(255, 153, 0, 0.175)' },
+	{ fg: 'rgb(204, 0, 255)', bg: 'rgb(204, 0, 255, 0.175)' },
+	{ fg: 'rgb(0, 0, 102)', bg: 'rgb(0, 0, 102, 0.175)' }
+];

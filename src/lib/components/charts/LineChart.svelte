@@ -22,12 +22,10 @@
 						label: dataset[0].name,
 						data: dataset.map((item) => item.total),
 						borderColor: getColor(),
-						pointBackgroundColor: getColor(),
 						fill: false,
-						radius: 6,
 						tension: 0.3,
-						borderWidth: 5,
-						pointHoverRadius: 6
+						borderWidth: 3.5,
+						pointHoverRadius: 8
 					};
 				})
 			},
