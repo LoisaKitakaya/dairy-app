@@ -40,7 +40,7 @@
 
 <section class="pt-20 pb-8 px-6 sm:px-4">
 	<div class="flex justify-between items-center my-4 gap-4 sm:gap-0">
-		<h1 class="text-xl font-semibold text-center sm:text-left">Business Earnings</h1>
+		<h1 class="text-xl font-semibold text-center sm:text-left">Business Customers</h1>
 		<div class="flex justify-end items-center gap-4">
 			<EditMode />
 			<button class="btn btn-sm btn-active btn-ghost" onclick="new_prod_record.showModal()"

@@ -3,6 +3,7 @@
 	import moment from 'moment';
 
 	export let data;
+	export let customers;
 
 	let rows_per_page;
 	let current_page;
@@ -100,14 +101,22 @@
 		<tbody>
 			{#each paginatedItems as item (item.id)}
 				<tr class="hover">
-					<td
-						><input
-							type="text"
-							placeholder="Type here"
-							class="input input-sm w-fit sm:w-full max-w-xs text-center"
+					<td>
+						<select
+							name="priority"
+							class="select select-md w-fit sm:w-full max-w-xs"
 							bind:value={item.name}
 							on:change={updateName}
-						/></td
+						>
+							<option disabled selected>Select customer</option>
+							{#if customers.length > 0}
+								{#each customers as customer}
+									<option value={customer.name}>{customer.name}</option>
+								{/each}
+							{:else}
+								<option disabled>No customers recorded</option>
+							{/if}
+						</select></td
 					>
 					<td
 						><input

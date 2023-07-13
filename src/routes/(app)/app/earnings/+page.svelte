@@ -63,7 +63,7 @@
 			{#if !$toggle}
 				<EarningsTable data={td} />
 			{:else}
-				<TableEditable data={td} />
+				<TableEditable data={td} customers={customersData} />
 			{/if}
 		{:else}
 			<h1 class="text-center text-xl my-36">

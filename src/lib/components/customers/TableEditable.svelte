@@ -104,11 +104,11 @@
 					<td>
 						<select
 							name="priority"
-							class="select select-md w-fit sm:w-full max-w-xs text-center"
+							class="select select-md w-fit sm:w-full max-w-xs"
 							bind:value={item.priority}
 							on:change={updatePriority}
 						>
-							<option disabled selected>Select priority level</option>
+							<option disabled selected>Select priority</option>
 							<option value="High">High</option>
 							<option value="Mid">Mid</option>
 							<option value="Low">Low</option>
@@ -126,7 +126,7 @@
 					<td>
 						<select
 							name="priority"
-							class="select select-md w-fit sm:w-full max-w-xs text-center"
+							class="select select-md w-fit sm:w-full max-w-xs"
 							bind:value={item.trip}
 							on:change={updateTrip}
 						>
