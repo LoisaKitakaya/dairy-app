@@ -16,6 +16,7 @@
 			<input
 				type="number"
                 step="0.01"
+				value="0.00"
 				name="morning"
 				placeholder="morning production"
 				class="input input-bordered w-full"
@@ -26,6 +27,7 @@
 			<input
 				type="number"
                 step="0.01"
+				value="0.00"
 				name="noon"
 				placeholder="afternoon production"
 				class="input input-bordered w-full"
@@ -36,6 +38,7 @@
 			<input
 				type="number"
                 step="0.01"
+				value="0.00"
 				name="evening"
 				placeholder="evening production"
 				class="input input-bordered w-full"

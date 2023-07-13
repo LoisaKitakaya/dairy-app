@@ -34,38 +34,30 @@
 	};
 
 	let nameUpdate = null;
-	let morningUpdate = null;
-	let afternoonUpdate = null;
-	let eveningUpdate = null;
-	let dateUpdate = null;
+	let priorityUpdate = null;
+	let phoneUpdate = null;
+	let tripUpdate = null;
+	let packageUpdate = null;
 
 	const updateName = (event) => {
 		nameUpdate = event.target.value;
 		console.log(nameUpdate);
 	};
 
-	const updateMorning = (event) => {
-		morningUpdate = event.target.value;
+	const updatePriority = (event) => {
+		priorityUpdate = event.target.value;
 	};
 
-	const updateAfternoon = (event) => {
-		afternoonUpdate = event.target.value;
+	const updatePhone = (event) => {
+		phoneUpdate = event.target.value;
 	};
 
-	const updateEvening = (event) => {
-		eveningUpdate = event.target.value;
+	const updateTrip = (event) => {
+		tripUpdate = event.target.value;
 	};
 
-	const updateDate = (event) => {
-		let newDate = event.target.value.replace(/-/g, '');
-
-		dateUpdate = moment(newDate, 'YYYYMMDD').format('YYYY-MM-DDTHH:MM');
-	};
-
-	const sameDate = (oldDate) => {
-		let newDate = oldDate.replace(/-/g, '');
-
-		return moment(newDate, 'YYYYMMDD').format('YYYY-MM-DDTHH:MM');
+	const updatePackage = (event) => {
+		packageUpdate = event.target.value;
 	};
 </script>
 
@@ -89,11 +81,10 @@
 		<thead>
 			<tr class="bg-base-300 text-base-content">
 				<th class="cursor-pointer">Name</th>
-				<th class="cursor-pointer">Morning</th>
-				<th class="cursor-pointer">Afternoon</th>
-				<th class="cursor-pointer">Evening</th>
-				<th class="cursor-pointer">Total</th>
-				<th class="cursor-pointer">Date</th>
+				<th class="cursor-pointer">Priority</th>
+				<th class="cursor-pointer">Phone</th>
+				<th class="cursor-pointer">Trip</th>
+				<th class="cursor-pointer">Package</th>
 				<th class="cursor-pointer">Update</th>
 				<th class="cursor-pointer">Delete</th>
 			</tr>
@@ -110,77 +101,71 @@
 							on:change={updateName}
 						/></td
 					>
-					<td
-						><input
-							type="number"
-							step="0.01"
-							placeholder="Type here"
-							class="input input-sm w-fit sm:w-full max-w-xs text-center"
-							bind:value={item.morning}
-							on:change={updateMorning}
-						/></td
-					>
-					<td
-						><input
-							type="number"
-							step="0.01"
-							placeholder="Type here"
-							class="input input-sm w-fit sm:w-full max-w-xs text-center"
-							bind:value={item.noon}
-							on:change={updateAfternoon}
-						/></td
-					>
-					<td
-						><input
-							type="number"
-							step="0.01"
-							placeholder="Type here"
-							class="input input-sm w-fit sm:w-full max-w-xs text-center"
-							bind:value={item.evening}
-							on:change={updateEvening}
-						/></td
-					>
-					<td
-						><input
-							type="number"
-							step="0.01"
-							placeholder="Type here"
-							class="input input-sm w-fit sm:w-full max-w-xs text-center"
-							readonly
-							bind:value={item.total}
-						/></td
+					<td>
+						<select
+							name="priority"
+							class="select select-md w-fit sm:w-full max-w-xs"
+							bind:value={item.priority}
+							on:change={updatePriority}
+						>
+							<option disabled selected>Select priority</option>
+							<option value="High">High</option>
+							<option value="Mid">Mid</option>
+							<option value="Low">Low</option>
+						</select></td
 					>
 					<td
 						><input
 							type="text"
 							placeholder="Type here"
 							class="input input-sm w-fit sm:w-full max-w-xs text-center"
-							bind:value={item.date}
-							on:change={updateDate}
+							bind:value={item.phone}
+							on:change={updatePhone}
+						/></td
+					>
+					<td>
+						<select
+							name="priority"
+							class="select select-md w-fit sm:w-full max-w-xs"
+							bind:value={item.trip}
+							on:change={updateTrip}
+						>
+							<option disabled selected>Select trip</option>
+							<option value="Morning">Morning</option>
+							<option value="Afternoon">Afternoon</option>
+							<option value="Evening">Evening</option>
+						</select></td
+					>
+					<td
+						><input
+							type="text"
+							placeholder="Type here"
+							class="input input-sm w-fit sm:w-full max-w-xs text-center"
+							bind:value={item.package}
+							on:change={updatePackage}
 						/></td
 					>
 					<td
 						><form method="POST">
 							<button
 								class="btn btn-sm btn-secondary"
-								formaction="?/updateProdRecord&id={item.id}&name={nameUpdate
+								formaction="?/updateCustomerRecord&id={item.id}&name={nameUpdate
 									? nameUpdate
-									: item.name}&morning={morningUpdate
-									? morningUpdate.toString()
-									: item.morning}&noon={afternoonUpdate
-									? afternoonUpdate.toString()
-									: item.noon}&evening={eveningUpdate
-									? eveningUpdate.toString()
-									: item.evening}&date={dateUpdate
-									? dateUpdate.toString()
-									: (dateUpdate = sameDate(item.date).toString())}"
-								><i class="bi bi-arrow-repeat" /></button
+									: item.name}&priority={priorityUpdate
+									? priorityUpdate.toString()
+									: item.priority}&phone={phoneUpdate
+									? phoneUpdate.toString()
+									: item.phone}&trip={tripUpdate
+									? tripUpdate.toString()
+									: item.trip}&package={packageUpdate
+									? packageUpdate.toString()
+									: item.package.toString()}"><i class="bi bi-arrow-repeat" /></button
 							>
 						</form></td
 					>
 					<td
 						><form method="POST">
-							<button class="btn btn-sm btn-error" formaction="?/deleteProdRecord&id={item.id}"
+							<button class="btn btn-sm btn-error" formaction="?/deleteCustomerRecord&id={item.id}"
 								><i class="bi bi-trash" /></button
 							>
 						</form></td

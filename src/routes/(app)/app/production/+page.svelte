@@ -76,7 +76,7 @@
 				<TableEditable data={td} />
 			{/if}
 		{:else}
-			<h1 class="text-center text-xl underline my-36">
+			<h1 class="text-center text-xl my-36">
 				0 records found. Click the '<i class="bi bi-plus-lg" /> New' button to create new records.
 			</h1>
 		{/if}

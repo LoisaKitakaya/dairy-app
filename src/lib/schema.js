@@ -17,6 +17,36 @@ export const ALL_PRODUCTION_RECORDS = {
   }`
 };
 
+export const ALL_PAYMENT_RECORDS = {
+	query: `query get_all_payment_records {
+    get_all_payment_records {
+      _id
+      name
+      amount
+      payment_method
+      quantity
+      payment_date
+      created_on
+      updated_on
+    }
+  }`
+};
+
+export const ALL_CUSTOMER_RECORDS = {
+	query: `query get_all_customer_records {
+    get_all_customer_records {
+      _id
+      name
+      priority
+      phone
+      trip
+      package
+      created_on
+      updated_on
+    }
+  }`
+};
+
 // Mutations
 
 export const CREATE_USER = {
@@ -71,5 +101,67 @@ export const UPDATE_PRODUCTION_RECORD = {
 export const DELETE_PRODUCTION_RECORD = {
 	query: `mutation delete_production_record($id: ID!) {
     delete_production_record(id: $id)
+  }`
+};
+
+export const CREATE_PAYMENT_RECORD = {
+	query: `mutation create_payment_record($name: String!, $amount: String!, $payment_method: String!, $quantity: String!, $payment_date: String!) {
+    create_payment_record(
+      name: $name
+      amount: $amount
+      payment_method: $payment_method
+      quantity: $quantity
+      payment_date: $payment_date
+    )
+  }`
+};
+
+export const UPDATE_PAYMENT_RECORD = {
+	query: `mutation update_payment_record($id: ID!, $name: String!, $amount: String!, $payment_method: String!, $quantity: String!, $payment_date: String!) {
+    update_payment_record(
+      id: $id
+      name: $name
+      amount: $amount
+      payment_method: $payment_method
+      quantity: $quantity
+      payment_date: $payment_date
+    )
+  }`
+};
+
+export const DELETE_PAYMENT_RECORD = {
+	query: `mutation delete_payment_record($id: ID!) {
+    delete_payment_record(id: $id)
+  }`
+};
+
+export const CREATE_CUSTOMER_RECORD = {
+	query: `mutation create_customer_record($name: String!, $priority: String!, $phone: String!, $trip: String!, $package: String!) {
+    create_customer_record(
+      name: $name
+      priority: $priority
+      phone: $phone
+      trip: $trip
+      package: $package
+    )
+  }`
+};
+
+export const UPDATE_CUSTOMER_RECORD = {
+	query: `mutation update_customer_record($id: ID!, $name: String!, $priority: String!, $phone: String!, $trip: String!, $package: String!) {
+    update_customer_record(
+      id: $id
+      name: $name
+      priority: $priority
+      phone: $phone
+      trip: $trip
+      package: $package
+    )
+  }`
+};
+
+export const DELETE_CUSTOMER_RECORD = {
+	query: `mutation delete_customer_record($id: ID!) {
+    delete_customer_record(id: $id)
   }`
 };
