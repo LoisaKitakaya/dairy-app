@@ -32,6 +32,21 @@ export const ALL_PAYMENT_RECORDS = {
   }`
 };
 
+export const ALL_CUSTOMER_RECORDS = {
+	query: `query get_all_customer_records {
+    get_all_customer_records {
+      _id
+      name
+      priority
+      phone
+      trip
+      package
+      created_on
+      updated_on
+    }
+  }`
+};
+
 // Mutations
 
 export const CREATE_USER = {
@@ -117,5 +132,36 @@ export const UPDATE_PAYMENT_RECORD = {
 export const DELETE_PAYMENT_RECORD = {
 	query: `mutation delete_payment_record($id: ID!) {
     delete_payment_record(id: $id)
+  }`
+};
+
+export const CREATE_CUSTOMER_RECORD = {
+	query: `mutation create_customer_record($name: String!, $priority: String!, $phone: String!, $trip: String!, $package: String!) {
+    create_customer_record(
+      name: $name
+      priority: $priority
+      phone: $phone
+      trip: $trip
+      package: $package
+    )
+  }`
+};
+
+export const UPDATE_CUSTOMER_RECORD = {
+	query: `mutation update_customer_record($id: ID!, $name: String!, $priority: String!, $phone: String!, $trip: String!, $package: String!) {
+    update_customer_record(
+      id: $id
+      name: $name
+      priority: $priority
+      phone: $phone
+      trip: $trip
+      package: $package
+    )
+  }`
+};
+
+export const DELETE_CUSTOMER_RECORD = {
+	query: `mutation delete_customer_record($id: ID!) {
+    delete_customer_record(id: $id)
   }`
 };

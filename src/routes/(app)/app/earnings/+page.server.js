@@ -1,4 +1,5 @@
 import {
+	ALL_CUSTOMER_RECORDS,
 	ALL_PAYMENT_RECORDS,
 	CREATE_PAYMENT_RECORD,
 	UPDATE_PAYMENT_RECORD,
@@ -23,8 +24,23 @@ export const load = async ({ fetch, cookies }) => {
 		return res;
 	};
 
+	const getCustomers = async (token) => {
+		const { query } = ALL_CUSTOMER_RECORDS;
+
+		const options = {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+			body: JSON.stringify({ query })
+		};
+
+		const res = await fetch(backendApi, options).then((res) => res.json());
+
+		return res;
+	};
+
 	return {
-		earnings: getEarnings(token)
+		earnings: getEarnings(token),
+		customers: getCustomers(token)
 	};
 };
 

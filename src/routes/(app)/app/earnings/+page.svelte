@@ -15,8 +15,10 @@
 	}
 
 	const { earnings } = data;
+	const { customers } = data;
 
 	let earningsData;
+	let customersData;
 	let error;
 
 	let td = [];
@@ -36,6 +38,12 @@
 		});
 	} else {
 		error = earnings.errors[0].message;
+	}
+
+	if (customers.data !== null) {
+		customersData = customers.data.get_all_customer_records;
+	} else {
+		error = customers.errors[0].message;
 	}
 </script>
 
@@ -73,7 +81,7 @@
 			class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2"
 			onclick="new_prod_record.close()">✕</button
 		>
-		<NewRecord />
+		<NewRecord customers={customersData} />
 	</div>
 </dialog>
 

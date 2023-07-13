@@ -1,21 +1,29 @@
+<script>
+	export let customers = [];
+</script>
+
 <div class="my-4">
 	<p class="mb-4 text-center">Record new earning</p>
 
 	<form method="POST" action="?/createPayRecord">
 		<div class="mb-4">
 			<label for="name" class="px-1">Name</label>
-			<input
-				type="text"
-				name="name"
-				placeholder="name of buyer"
-				class="input input-bordered w-full"
-			/>
+			<select name="name" class="select select-bordered w-full">
+				<option disabled selected>Select customer</option>
+				{#if customers.length > 0}
+					{#each customers as customer}
+						<option value={customer.name}>{customer.name}</option>
+					{/each}
+				{:else}
+					<option disabled>No customers recorded</option>
+				{/if}
+			</select>
 		</div>
 		<div class="mb-4">
 			<label for="name" class="px-1">Amount</label>
 			<input
 				type="number"
-                step="0.01"
+				step="0.01"
 				name="amount"
 				placeholder="how much paid"
 				class="input input-bordered w-full"
@@ -34,7 +42,7 @@
 			<label for="name" class="px-1">Quantity</label>
 			<input
 				type="number"
-                step="0.01"
+				step="0.01"
 				name="quantity"
 				placeholder="volume paid for"
 				class="input input-bordered w-full"
