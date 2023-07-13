@@ -3,7 +3,7 @@
 	import moment from 'moment';
 
 	export let data;
-	export let customers;
+	export let categories;
 
 	let rows_per_page;
 	let current_page;
@@ -34,26 +34,21 @@
 		}
 	};
 
-	let nameUpdate = null;
+	let itemUpdate = null;
+	let categoryUpdate = null;
 	let amountUpdate = null;
-	let methodUpdate = null;
-	let quantityUpdate = null;
 	let dateUpdate = null;
 
-	const updateName = (event) => {
-		nameUpdate = event.target.value;
+	const updateItem = (event) => {
+		itemUpdate = event.target.value;
+	};
+
+	const updateCategory = (event) => {
+		categoryUpdate = event.target.value;
 	};
 
 	const updateAmount = (event) => {
-		morningUpdate = event.target.value;
-	};
-
-	const updateMethod = (event) => {
-		afternoonUpdate = event.target.value;
-	};
-
-	const updateQuantity = (event) => {
-		eveningUpdate = event.target.value;
+		amountUpdate = event.target.value;
 	};
 
 	const updateDate = (event) => {
@@ -88,10 +83,9 @@
 	<table class="table table-pin-rows text-center mb-4">
 		<thead>
 			<tr class="bg-base-300 text-base-content">
-				<th class="cursor-pointer">Name</th>
+				<th class="cursor-pointer">Item</th>
+				<th class="cursor-pointer">Category</th>
 				<th class="cursor-pointer">Amount</th>
-				<th class="cursor-pointer">Method</th>
-				<th class="cursor-pointer">Quantity</th>
 				<th class="cursor-pointer">Date</th>
 				<th class="cursor-pointer">Update</th>
 				<th class="cursor-pointer">Delete</th>
@@ -100,21 +94,26 @@
 		<tbody>
 			{#each paginatedItems as item (item.id)}
 				<tr class="hover">
+					<td
+						><input
+							type="text"
+							placeholder="Type here"
+							class="input input-sm w-fit sm:w-full max-w-xs text-center"
+							bind:value={item.item}
+							on:change={updateItem}
+						/></td
+					>
 					<td>
 						<select
 							name="priority"
 							class="select select-md w-fit sm:w-full max-w-xs"
-							bind:value={item.name}
-							on:change={updateName}
+							bind:value={item.category}
+							on:change={updateCategory}
 						>
 							<option disabled selected>Select customer</option>
-							{#if customers.length > 0}
-								{#each customers as customer}
-									<option value={customer.name}>{customer.name}</option>
-								{/each}
-							{:else}
-								<option disabled>No customers recorded</option>
-							{/if}
+							{#each categories as category}
+								<option value={category}>{category}</option>
+							{/each}
 						</select></td
 					>
 					<td
@@ -132,25 +131,6 @@
 							type="text"
 							placeholder="Type here"
 							class="input input-sm w-fit sm:w-full max-w-xs text-center"
-							bind:value={item.method}
-							on:change={updateMethod}
-						/></td
-					>
-					<td
-						><input
-							type="number"
-							step="0.01"
-							placeholder="Type here"
-							class="input input-sm w-fit sm:w-full max-w-xs text-center"
-							bind:value={item.quantity}
-							on:change={updateQuantity}
-						/></td
-					>
-					<td
-						><input
-							type="text"
-							placeholder="Type here"
-							class="input input-sm w-fit sm:w-full max-w-xs text-center"
 							bind:value={item.date}
 							on:change={updateDate}
 						/></td
@@ -159,15 +139,13 @@
 						><form method="POST">
 							<button
 								class="btn btn-sm btn-secondary"
-								formaction="?/updatePayRecord&id={item.id}&name={nameUpdate
-									? nameUpdate
-									: item.name}&amount={amountUpdate
+								formaction="?/updateExpRecord&id={item.id}&item={itemUpdate
+									? itemUpdate
+									: item.name}&category={categoryUpdate
+									? categoryUpdate.toString()
+									: item.morning}&amount={amountUpdate
 									? amountUpdate.toString()
-									: item.amount}&method={methodUpdate
-									? methodUpdate.toString()
-									: item.method}&quantity={quantityUpdate
-									? quantityUpdate.toString()
-									: item.quantity}&date={dateUpdate
+									: item.noon}&date={dateUpdate
 									? dateUpdate.toString()
 									: (dateUpdate = sameDate(item.date).toString())}"
 								><i class="bi bi-arrow-repeat" /></button
@@ -176,7 +154,7 @@
 					>
 					<td
 						><form method="POST">
-							<button class="btn btn-sm btn-error" formaction="?/deletePayRecord&id={item.id}"
+							<button class="btn btn-sm btn-error" formaction="?/deleteExpRecord&id={item.id}"
 								><i class="bi bi-trash" /></button
 							>
 						</form></td

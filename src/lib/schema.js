@@ -47,6 +47,20 @@ export const ALL_CUSTOMER_RECORDS = {
   }`
 };
 
+export const ALL_EXPENSE_RECORDS = {
+	query: `query get_all_expense_records {
+    get_all_expense_records {
+      _id
+      item
+      category
+      amount
+      date_of_action
+      created_on
+      updated_on
+    }
+  }`
+};
+
 // Mutations
 
 export const CREATE_USER = {
@@ -163,5 +177,34 @@ export const UPDATE_CUSTOMER_RECORD = {
 export const DELETE_CUSTOMER_RECORD = {
 	query: `mutation delete_customer_record($id: ID!) {
     delete_customer_record(id: $id)
+  }`
+};
+
+export const CREATE_EXPENSE_RECORD = {
+	query: `mutation create_expense_record($item: String!, $category: String!, $amount: String!, $date_of_action: String!) {
+    create_expense_record(
+      item: $item
+      category: $category
+      amount: $amount
+      date_of_action: $date_of_action
+    )
+  }`
+};
+
+export const UPDATE_EXPENSE_RECORD = {
+	query: `mutation update_expense_record($id: ID!, $item: String!, $category: String!, $amount: String!, $date_of_action: String!) {
+    update_expense_record(
+      id: $id
+      item: $item
+      category: $category
+      amount: $amount
+      date_of_action: $date_of_action
+    )
+  }`
+};
+
+export const DELETE_EXPENSE_RECORD = {
+	query: `mutation delete_expense_record($id: ID!) {
+    delete_expense_record(id: $id)
   }`
 };
