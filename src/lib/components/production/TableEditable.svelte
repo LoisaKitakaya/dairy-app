@@ -41,7 +41,6 @@
 
 	const updateName = (event) => {
 		nameUpdate = event.target.value;
-		console.log(nameUpdate);
 	};
 
 	const updateMorning = (event) => {

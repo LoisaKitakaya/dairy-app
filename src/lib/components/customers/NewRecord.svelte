@@ -43,6 +43,7 @@
 			<input
 				type="number"
 				step="0.01"
+				value="0.00"
 				name="package"
 				placeholder="Customer subscription"
 				class="input input-bordered w-full"

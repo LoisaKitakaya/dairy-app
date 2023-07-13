@@ -3,7 +3,7 @@
 </script>
 
 <div class="my-4">
-	<p class="mb-4 text-center">Record new earning</p>
+	<p class="mb-4 text-center">Record new earnings</p>
 
 	<form method="POST" action="?/createPayRecord">
 		<div class="mb-4">
@@ -24,6 +24,7 @@
 			<input
 				type="number"
 				step="0.01"
+				value="0.00"
 				name="amount"
 				placeholder="how much paid"
 				class="input input-bordered w-full"
@@ -43,6 +44,7 @@
 			<input
 				type="number"
 				step="0.01"
+				value="0.00"
 				name="quantity"
 				placeholder="volume paid for"
 				class="input input-bordered w-full"
