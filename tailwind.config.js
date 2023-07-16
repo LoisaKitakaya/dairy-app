@@ -24,4 +24,4 @@ export default {
 		prefix: '',
 		logs: true
 	}
-};
+}

@@ -1,22 +1,22 @@
 <script>
-	import Table from '$lib/components/table/Table.svelte';
-	import { writable } from 'svelte/store';
-	import { createTable } from 'svelte-headless-table';
+	import Table from '$lib/components/table/Table.svelte'
+	import { writable } from 'svelte/store'
+	import { createTable } from 'svelte-headless-table'
 	import {
 		addSortBy,
 		addTableFilter,
 		addPagination,
 		addSelectedRows
-	} from 'svelte-headless-table/plugins';
+	} from 'svelte-headless-table/plugins'
 
-	export let data = [];
+	export let data = []
 
 	const table = createTable(writable(data), {
 		sort: addSortBy(),
 		page: addPagination(),
 		select: addSelectedRows(),
 		tableFilter: addTableFilter()
-	});
+	})
 
 	const columns = table.createColumns([
 		table.column({
@@ -35,13 +35,13 @@
 			header: 'Date',
 			accessor: 'date'
 		})
-	]);
+	])
 
 	const { visibleColumns, headerRows, pageRows, tableAttrs, tableBodyAttrs, pluginStates } =
-		table.createViewModel(columns);
+		table.createViewModel(columns)
 
-	const { filterValue } = pluginStates.tableFilter;
-	const { pageIndex, pageCount, pageSize, hasNextPage, hasPreviousPage } = pluginStates.page;
+	const { filterValue } = pluginStates.tableFilter
+	const { pageIndex, pageCount, pageSize, hasNextPage, hasPreviousPage } = pluginStates.page
 
 	const props = {
 		headerRows,
@@ -55,7 +55,7 @@
 		pageSize,
 		hasNextPage,
 		hasPreviousPage
-	};
+	}
 </script>
 
 <Table {...props} />

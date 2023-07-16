@@ -1,10 +1,10 @@
 <script>
-	import toast, { Toaster } from 'svelte-french-toast';
+	import toast, { Toaster } from 'svelte-french-toast'
 
-	export let form;
+	export let form
 
 	if (form) {
-		form.success === true ? toast.success(form.message) : toast.error(form.message);
+		form.success === true ? toast.success(form.message) : toast.error(form.message)
 	}
 </script>
 

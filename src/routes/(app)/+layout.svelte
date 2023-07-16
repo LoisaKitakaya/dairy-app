@@ -1,19 +1,19 @@
 <script>
-	import { enhance } from '$app/forms';
+	import { enhance } from '$app/forms'
 
-	export let data;
+	export let data
 
-	const { user } = data;
+	const { user } = data
 
 	const refreshPage = ({ action }) => {
-		const move = action.searchParams.get('move');
+		const move = action.searchParams.get('move')
 
 		return async () => {
 			if (move) {
-				location.reload();
+				location.reload()
 			}
-		};
-	};
+		}
+	}
 </script>
 
 <!-- Navbar -->

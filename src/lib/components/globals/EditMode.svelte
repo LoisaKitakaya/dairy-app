@@ -1,5 +1,5 @@
 <script>
-	import { toggle } from '$lib/store.js';
+	import { toggle } from '$lib/store.js'
 </script>
 
 <div class="tooltip too sm:tooltip-left" data-tip={$toggle ? 'view mode' : 'edit mode'}>

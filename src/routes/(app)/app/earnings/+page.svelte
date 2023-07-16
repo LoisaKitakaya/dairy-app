@@ -1,30 +1,30 @@
 <script>
-	import moment from 'moment';
-	import { toggle } from '$lib/store.js';
-	import EditMode from '$lib/components/globals/EditMode.svelte';
-	import toast, { Toaster } from 'svelte-french-toast';
-	import NewRecord from '$lib/components/earnings/NewRecord.svelte';
-	import EarningsTable from '$lib/components/earnings/EarningsTable.svelte';
-	import TableEditable from '$lib/components/earnings/TableEditable.svelte';
+	import moment from 'moment'
+	import { toggle } from '$lib/store.js'
+	import EditMode from '$lib/components/globals/EditMode.svelte'
+	import toast, { Toaster } from 'svelte-french-toast'
+	import NewRecord from '$lib/components/earnings/NewRecord.svelte'
+	import EarningsTable from '$lib/components/earnings/EarningsTable.svelte'
+	import TableEditable from '$lib/components/earnings/TableEditable.svelte'
 
-	export let data;
-	export let form;
+	export let data
+	export let form
 
 	if (form) {
-		form.success === true ? toast.success(form.message) : toast.error(form.message);
+		form.success === true ? toast.success(form.message) : toast.error(form.message)
 	}
 
-	const { earnings } = data;
-	const { customers } = data;
+	const { earnings } = data
+	const { customers } = data
 
-	let earningsData;
-	let customersData;
-	let error;
+	let earningsData
+	let customersData
+	let error
 
-	let td = [];
+	let td = []
 
 	if (earnings.data !== null) {
-		earningsData = earnings.data.get_all_payment_records;
+		earningsData = earnings.data.get_all_payment_records
 
 		td = earningsData.map((item) => {
 			return {
@@ -34,16 +34,16 @@
 				method: item.payment_method,
 				quantity: item.quantity.toFixed(2),
 				date: moment.unix(item.payment_date).format('YYYY-MM-DD').toString()
-			};
-		});
+			}
+		})
 	} else {
-		error = earnings.errors[0].message;
+		error = earnings.errors[0].message
 	}
 
 	if (customers.data !== null) {
-		customersData = customers.data.get_all_customer_records;
+		customersData = customers.data.get_all_customer_records
 	} else {
-		error = customers.errors[0].message;
+		error = customers.errors[0].message
 	}
 </script>
 

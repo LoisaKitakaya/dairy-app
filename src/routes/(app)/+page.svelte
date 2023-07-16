@@ -1,7 +1,7 @@
 <script>
-	export let data;
+	export let data
 
-	const { user } = data;
+	const { user } = data
 </script>
 
 <div

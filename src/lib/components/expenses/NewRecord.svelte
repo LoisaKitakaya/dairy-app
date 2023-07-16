@@ -1,5 +1,5 @@
 <script>
-	export let categories;
+	export let categories
 </script>
 
 <div class="my-4">

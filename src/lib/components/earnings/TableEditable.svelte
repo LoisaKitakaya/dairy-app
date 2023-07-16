@@ -1,72 +1,72 @@
 <script>
-	import { page, rows } from '$lib/store.js';
-	import moment from 'moment';
+	import { page, rows } from '$lib/store.js'
+	import moment from 'moment'
 
-	export let data;
-	export let customers;
+	export let data
+	export let customers
 
-	let rows_per_page;
-	let current_page;
+	let rows_per_page
+	let current_page
 
-	const rowSubscription = rows.subscribe((val) => (rows_per_page = val));
-	const pageSubscription = page.subscribe((val) => (current_page = val));
+	const rowSubscription = rows.subscribe((val) => (rows_per_page = val))
+	const pageSubscription = page.subscribe((val) => (current_page = val))
 
-	$: pageCount = current_page - 1;
+	$: pageCount = current_page - 1
 
-	$: start = rows_per_page * pageCount;
-	$: end = start + rows_per_page;
+	$: start = rows_per_page * pageCount
+	$: end = start + rows_per_page
 
-	$: paginatedItems = data.slice(start, end);
+	$: paginatedItems = data.slice(start, end)
 
 	const nextPage = () => {
-		current_page++;
+		current_page++
 
 		if (current_page >= paginatedItems.length) {
-			current_page = pageCount + 1;
+			current_page = pageCount + 1
 		}
-	};
+	}
 
 	const previousPage = () => {
-		current_page--;
+		current_page--
 
 		if (current_page <= 0) {
-			current_page = 1;
+			current_page = 1
 		}
-	};
+	}
 
-	let nameUpdate = null;
-	let amountUpdate = null;
-	let methodUpdate = null;
-	let quantityUpdate = null;
-	let dateUpdate = null;
+	let nameUpdate = null
+	let amountUpdate = null
+	let methodUpdate = null
+	let quantityUpdate = null
+	let dateUpdate = null
 
 	const updateName = (event) => {
-		nameUpdate = event.target.value;
-	};
+		nameUpdate = event.target.value
+	}
 
 	const updateAmount = (event) => {
-		morningUpdate = event.target.value;
-	};
+		morningUpdate = event.target.value
+	}
 
 	const updateMethod = (event) => {
-		afternoonUpdate = event.target.value;
-	};
+		afternoonUpdate = event.target.value
+	}
 
 	const updateQuantity = (event) => {
-		eveningUpdate = event.target.value;
-	};
+		eveningUpdate = event.target.value
+	}
 
 	const updateDate = (event) => {
-		let newDate = event.target.value.replace(/-/g, '');
+		let newDate = event.target.value.replace(/-/g, '')
 
-		dateUpdate = moment(newDate, 'YYYYMMDD').format('YYYY-MM-DDTHH:MM');
-	};
+		dateUpdate = moment(newDate, 'YYYYMMDD').format('YYYY-MM-DDTHH:MM')
+	}
 
 	const sameDate = (oldDate) => {
-		let newDate = oldDate.replace(/-/g, '');
+		let newDate = oldDate.replace(/-/g, '')
 
-		return moment(newDate, 'YYYYMMDD').format('YYYY-MM-DDTHH:MM');
-	};
+		return moment(newDate, 'YYYYMMDD').format('YYYY-MM-DDTHH:MM')
+	}
 </script>
 
 <table class="table">

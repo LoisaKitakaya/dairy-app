@@ -1,18 +1,18 @@
 <script>
-	import { enhance } from '$app/forms';
+	import { enhance } from '$app/forms'
 
 	const themes = [
 		['fantasy', 'retro', 'cyberpunk', 'valentine'],
 		['aqua', 'dracula', 'luxury', 'synthwave']
-	];
+	]
 
 	const updateTheme = ({ action }) => {
-		const theme = action.searchParams.get('theme');
+		const theme = action.searchParams.get('theme')
 
 		if (theme) {
-			document.documentElement.setAttribute('data-theme', theme);
+			document.documentElement.setAttribute('data-theme', theme)
 		}
-	};
+	}
 </script>
 
 <section class="pt-20 pb-8 px-6 sm:px-4">
