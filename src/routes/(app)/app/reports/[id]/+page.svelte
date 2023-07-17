@@ -1,6 +1,7 @@
 <script>
 	import * as config from '$lib/config'
-	
+	import { fade } from 'svelte/transition'
+
 	export let data
 
 	const { report } = data
@@ -19,7 +20,11 @@
 	<title>{config.title} | Report</title>
 </svelte:head>
 
-<section class="pt-20 pb-8 px-6 sm:px-4">
+<section
+	class="pt-20 pb-8 px-6 sm:px-4"
+	out:fade={{ duration: 400 }}
+	in:fade={{ delay: 400, duration: 400 }}
+>
 	{#if !error}
 		{#if reportData}
 			<h1 class="text-xl font-semibold text-center my-4">{reportData.title}</h1>
@@ -90,9 +95,8 @@
 
 			<form method="POST" class="mt-8 w-fit mx-auto">
 				<div class="tooltip" data-tip="Delete report">
-					<button
-						class="btn hover:btn-error"
-						formaction="?/deleteReport&id={reportData._id}"><i class="bi bi-trash" /></button
+					<button class="btn hover:btn-error" formaction="?/deleteReport&id={reportData._id}"
+						><i class="bi bi-trash" /></button
 					>
 				</div>
 			</form>
