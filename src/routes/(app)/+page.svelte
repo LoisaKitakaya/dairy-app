@@ -1,5 +1,6 @@
 <script>
 	import * as config from '$lib/config'
+	import { fade } from 'svelte/transition'
 
 	export let data
 
@@ -13,6 +14,8 @@
 <div
 	class="hero min-h-screen"
 	style="background-image: url(https://images.pexels.com/photos/13317661/pexels-photo-13317661.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);"
+	out:fade={{ duration: 400 }}
+	in:fade={{ delay: 400, duration: 400 }}
 >
 	<div class="hero-overlay bg-opacity-60" />
 	<div class="hero-content text-center text-neutral-content">

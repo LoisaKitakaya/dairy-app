@@ -1,6 +1,7 @@
 <script>
 	import toast, { Toaster } from 'svelte-french-toast'
 	import * as config from '$lib/config'
+	import { fade } from 'svelte/transition'
 
 	export let form
 
@@ -13,7 +14,11 @@
 	<title>{config.title} | Request Reset</title>
 </svelte:head>
 
-<div class="flex min-h-full flex-col justify-center px-6 py-12 items-center">
+<div
+	class="flex min-h-full flex-col justify-center px-6 py-12 items-center"
+	out:fade={{ duration: 400 }}
+	in:fade={{ delay: 400, duration: 400 }}
+>
 	<div class="mx-auto max-w-sm">
 		<h2 class="mt-10 text-2xl text-center font-bold leading-9 tracking-tight">
 			Enter you email address

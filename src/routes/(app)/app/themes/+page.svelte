@@ -1,6 +1,7 @@
 <script>
 	import { enhance } from '$app/forms'
 	import * as config from '$lib/config'
+	import { fade } from 'svelte/transition'
 
 	const themes = [
 		['fantasy', 'retro', 'cyberpunk', 'valentine'],
@@ -20,7 +21,11 @@
 	<title>{config.title} | Themes</title>
 </svelte:head>
 
-<section class="pt-20 pb-8 px-6 sm:px-4">
+<section
+	class="pt-20 pb-8 px-6 sm:px-4"
+	out:fade={{ duration: 400 }}
+	in:fade={{ delay: 400, duration: 400 }}
+>
 	<h1 class="text-2xl text-center mt-6">APP THEMES</h1>
 	<div class="w-fit mx-auto my-10 p-6 rounded-xl shadow bg-base-200">
 		<form method="POST" class="grid grid-cols-2 gap-4" use:enhance={updateTheme}>

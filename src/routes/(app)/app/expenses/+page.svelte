@@ -7,6 +7,7 @@
 	import NewRecord from '$lib/components/expenses/NewRecord.svelte'
 	import toast, { Toaster } from 'svelte-french-toast'
 	import * as config from '$lib/config'
+	import { fade } from 'svelte/transition'
 
 	export let data
 	export let form
@@ -44,7 +45,11 @@
 	<title>{config.title} | Expenses</title>
 </svelte:head>
 
-<section class="pt-20 pb-8 px-6 sm:px-4">
+<section
+	class="pt-20 pb-8 px-6 sm:px-4"
+	out:fade={{ duration: 400 }}
+	in:fade={{ delay: 400, duration: 400 }}
+>
 	<div class="flex justify-between items-center my-4 gap-4 sm:gap-0">
 		<h1 class="text-xl font-semibold text-center sm:text-left">Business Expenses</h1>
 		<div class="flex justify-end items-center gap-4">

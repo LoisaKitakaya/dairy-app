@@ -1,6 +1,7 @@
 <script>
 	import moment from 'moment'
 	import * as config from '$lib/config'
+	import { fade } from 'svelte/transition'
 
 	export let data
 
@@ -20,7 +21,11 @@
 	<title>{config.title} | Reports</title>
 </svelte:head>
 
-<section class="pt-20 pb-8 px-6 sm:px-4">
+<section
+	class="pt-20 pb-8 px-6 sm:px-4"
+	out:fade={{ duration: 400 }}
+	in:fade={{ delay: 400, duration: 400 }}
+>
 	{#if !error}
 		{#if reportsData.length > 0}
 			<h1 class="text-xl font-semibold text-center sm:text-left mt-4 mb-8">Weekly Reports</h1>
