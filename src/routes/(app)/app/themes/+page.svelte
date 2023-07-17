@@ -1,5 +1,6 @@
 <script>
 	import { enhance } from '$app/forms'
+	import * as config from '$lib/config'
 
 	const themes = [
 		['fantasy', 'retro', 'cyberpunk', 'valentine'],
@@ -14,6 +15,10 @@
 		}
 	}
 </script>
+
+<svelte:head>
+	<title>{config.title} | Themes</title>
+</svelte:head>
 
 <section class="pt-20 pb-8 px-6 sm:px-4">
 	<h1 class="text-2xl text-center mt-6">APP THEMES</h1>

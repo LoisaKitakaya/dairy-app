@@ -8,6 +8,7 @@
 	import toast, { Toaster } from 'svelte-french-toast'
 	import LineChart from '$lib/components/charts/LineChart.svelte'
 	import { getUniqueNames } from '$lib/charts.js'
+	import * as config from '$lib/config'
 
 	export let data
 	export let form
@@ -46,6 +47,10 @@
 		error = production.errors[0].message
 	}
 </script>
+
+<svelte:head>
+	<title>{config.title} | Production</title>
+</svelte:head>
 
 <section class="pt-20 pb-8 px-6 sm:px-4">
 	<div class="flex justify-between items-center my-4 gap-4 sm:gap-0">

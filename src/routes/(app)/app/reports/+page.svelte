@@ -16,6 +16,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>{config.title} | Reports</title>
+</svelte:head>
+
 <section class="pt-20 pb-8 px-6 sm:px-4">
 	{#if !error}
 		{#if reportsData.length > 0}

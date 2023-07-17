@@ -1,4 +1,6 @@
 <script>
+	import * as config from '$lib/config'
+	
 	export let data
 
 	const { report } = data
@@ -12,6 +14,10 @@
 		error = report.errors[0].message
 	}
 </script>
+
+<svelte:head>
+	<title>{config.title} | Report</title>
+</svelte:head>
 
 <section class="pt-20 pb-8 px-6 sm:px-4">
 	{#if !error}

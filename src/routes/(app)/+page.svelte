@@ -1,8 +1,14 @@
 <script>
+	import * as config from '$lib/config'
+
 	export let data
 
 	const { user } = data
 </script>
+
+<svelte:head>
+	<title>{config.title} | Home</title>
+</svelte:head>
 
 <div
 	class="hero min-h-screen"

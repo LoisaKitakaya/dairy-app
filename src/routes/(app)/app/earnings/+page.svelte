@@ -6,6 +6,7 @@
 	import NewRecord from '$lib/components/earnings/NewRecord.svelte'
 	import EarningsTable from '$lib/components/earnings/EarningsTable.svelte'
 	import TableEditable from '$lib/components/earnings/TableEditable.svelte'
+	import * as config from '$lib/config'
 
 	export let data
 	export let form
@@ -46,6 +47,10 @@
 		error = customers.errors[0].message
 	}
 </script>
+
+<svelte:head>
+	<title>{config.title} | Earnings</title>
+</svelte:head>
 
 <section class="pt-20 pb-8 px-6 sm:px-4">
 	<div class="flex justify-between items-center my-4 gap-4 sm:gap-0">

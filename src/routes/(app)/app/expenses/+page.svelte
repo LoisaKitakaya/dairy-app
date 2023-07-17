@@ -6,6 +6,7 @@
 	import TableEditable from '$lib/components/expenses/TableEditable.svelte'
 	import NewRecord from '$lib/components/expenses/NewRecord.svelte'
 	import toast, { Toaster } from 'svelte-french-toast'
+	import * as config from '$lib/config'
 
 	export let data
 	export let form
@@ -38,6 +39,10 @@
 		error = expenses.errors[0].message
 	}
 </script>
+
+<svelte:head>
+	<title>{config.title} | Expenses</title>
+</svelte:head>
 
 <section class="pt-20 pb-8 px-6 sm:px-4">
 	<div class="flex justify-between items-center my-4 gap-4 sm:gap-0">

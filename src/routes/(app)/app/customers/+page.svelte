@@ -5,6 +5,7 @@
 	import NewRecord from '$lib/components/customers/NewRecord.svelte'
 	import CustomersTable from '$lib/components/customers/CustomersTable.svelte'
 	import TableEditable from '$lib/components/customers/TableEditable.svelte'
+	import * as config from '$lib/config'
 
 	export let data
 	export let form
@@ -37,6 +38,10 @@
 		error = customers.errors[0].message
 	}
 </script>
+
+<svelte:head>
+	<title>{config.title} | Customers</title>
+</svelte:head>
 
 <section class="pt-20 pb-8 px-6 sm:px-4">
 	<div class="flex justify-between items-center my-4 gap-4 sm:gap-0">
