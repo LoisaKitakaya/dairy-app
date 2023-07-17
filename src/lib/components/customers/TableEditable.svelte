@@ -1,63 +1,63 @@
 <script>
-	import { page, rows } from '$lib/store.js';
-	import moment from 'moment';
+	import { page, rows } from '$lib/store.js'
+	import moment from 'moment'
 
-	export let data;
+	export let data
 
-	let rows_per_page;
-	let current_page;
+	let rows_per_page
+	let current_page
 
-	const rowSubscription = rows.subscribe((val) => (rows_per_page = val));
-	const pageSubscription = page.subscribe((val) => (current_page = val));
+	const rowSubscription = rows.subscribe((val) => (rows_per_page = val))
+	const pageSubscription = page.subscribe((val) => (current_page = val))
 
-	$: pageCount = current_page - 1;
+	$: pageCount = current_page - 1
 
-	$: start = rows_per_page * pageCount;
-	$: end = start + rows_per_page;
+	$: start = rows_per_page * pageCount
+	$: end = start + rows_per_page
 
-	$: paginatedItems = data.slice(start, end);
+	$: paginatedItems = data.slice(start, end)
 
 	const nextPage = () => {
-		current_page++;
+		current_page++
 
 		if (current_page >= paginatedItems.length) {
-			current_page = pageCount + 1;
+			current_page = pageCount + 1
 		}
-	};
+	}
 
 	const previousPage = () => {
-		current_page--;
+		current_page--
 
 		if (current_page <= 0) {
-			current_page = 1;
+			current_page = 1
 		}
-	};
+	}
 
-	let nameUpdate = null;
-	let priorityUpdate = null;
-	let phoneUpdate = null;
-	let tripUpdate = null;
-	let packageUpdate = null;
+	let nameUpdate = null
+	let priorityUpdate = null
+	let phoneUpdate = null
+	let tripUpdate = null
+	let packageUpdate = null
 
 	const updateName = (event) => {
-		nameUpdate = event.target.value;
-	};
+		nameUpdate = event.target.value
+	}
 
 	const updatePriority = (event) => {
-		priorityUpdate = event.target.value;
-	};
+		priorityUpdate = event.target.value
+	}
 
 	const updatePhone = (event) => {
-		phoneUpdate = event.target.value;
-	};
+		phoneUpdate = event.target.value
+	}
 
 	const updateTrip = (event) => {
-		tripUpdate = event.target.value;
-	};
+		tripUpdate = event.target.value
+	}
 
 	const updatePackage = (event) => {
-		packageUpdate = event.target.value;
-	};
+		packageUpdate = event.target.value
+	}
 </script>
 
 <table class="table">

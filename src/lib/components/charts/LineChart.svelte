@@ -1,16 +1,16 @@
 <script>
-	import Chart from 'chart.js/auto';
-	import { onMount } from 'svelte';
-	import { organizeByName, getColor, getUniqueDates } from '$lib/charts.js';
+	import Chart from 'chart.js/auto'
+	import { onMount } from 'svelte'
+	import { organizeByName, getColor, getUniqueDates } from '$lib/charts.js'
 
-	export let data;
-	export let labels;
+	export let data
+	export let labels
 
-	let ctx;
+	let ctx
 
-	let dataArr = organizeByName(data, labels);
+	let dataArr = organizeByName(data, labels)
 
-	let uniqueDates = getUniqueDates(data);
+	let uniqueDates = getUniqueDates(data)
 
 	onMount(() => {
 		new Chart(ctx, {
@@ -26,7 +26,7 @@
 						tension: 0.3,
 						borderWidth: 3.5,
 						pointHoverRadius: 8
-					};
+					}
 				})
 			},
 			options: {
@@ -39,8 +39,8 @@
 					}
 				}
 			}
-		});
-	});
+		})
+	})
 </script>
 
 <canvas class="mx-auto w-full text-base-content" bind:this={ctx} />

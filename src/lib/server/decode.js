@@ -1,34 +1,34 @@
-import { decode } from 'jsonwebtoken';
-import { salt } from './secrets';
+import { decode } from 'jsonwebtoken'
+import { salt } from './secrets'
 
 export const decodeToken = (event) => {
-	const { cookies } = event;
+	const { cookies } = event
 
-	const token = cookies.get('session');
+	const token = cookies.get('session')
 
-	let payload = null;
+	let payload = null
 
 	if (token) {
 		try {
-			payload = decode(token, salt);
+			payload = decode(token, salt)
 		} catch (err) {
-			console.log(err);
+			console.log(err)
 		}
 
-		return payload;
+		return payload
 	}
 
-	return null;
-};
+	return null
+}
 
 export const decodeResetLink = (token) => {
-	let payload = null;
+	let payload = null
 
 	try {
-		payload = decode(token, salt);
+		payload = decode(token, salt)
 	} catch (err) {
-		console.log(err);
+		console.log(err)
 	}
 
-	return payload;
-};
+	return payload
+}

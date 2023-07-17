@@ -1,12 +1,17 @@
 <script>
-	import toast, { Toaster } from 'svelte-french-toast';
+	import toast, { Toaster } from 'svelte-french-toast'
+	import * as config from '$lib/config'
 
-	export let form;
+	export let form
 
 	if (form) {
-		form.success === true ? toast.success(form.message) : toast.error(form.message);
+		form.success === true ? toast.success(form.message) : toast.error(form.message)
 	}
 </script>
+
+<svelte:head>
+	<title>{config.title} | Request Reset</title>
+</svelte:head>
 
 <div class="flex min-h-full flex-col justify-center px-6 py-12 items-center">
 	<div class="mx-auto max-w-sm">

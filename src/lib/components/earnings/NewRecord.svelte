@@ -1,5 +1,5 @@
 <script>
-	export let customers = [];
+	export let customers = []
 </script>
 
 <div class="my-4">

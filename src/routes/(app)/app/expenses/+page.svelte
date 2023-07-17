@@ -1,29 +1,30 @@
 <script>
-	import moment from 'moment';
-	import { toggle } from '$lib/store.js';
-	import ExpensesTable from '$lib/components/expenses/ExpensesTable.svelte';
-	import EditMode from '$lib/components/globals/EditMode.svelte';
-	import TableEditable from '$lib/components/expenses/TableEditable.svelte';
-	import NewRecord from '$lib/components/expenses/NewRecord.svelte';
-	import toast, { Toaster } from 'svelte-french-toast';
+	import moment from 'moment'
+	import { toggle } from '$lib/store.js'
+	import ExpensesTable from '$lib/components/expenses/ExpensesTable.svelte'
+	import EditMode from '$lib/components/globals/EditMode.svelte'
+	import TableEditable from '$lib/components/expenses/TableEditable.svelte'
+	import NewRecord from '$lib/components/expenses/NewRecord.svelte'
+	import toast, { Toaster } from 'svelte-french-toast'
+	import * as config from '$lib/config'
 
-	export let data;
-	export let form;
+	export let data
+	export let form
 
 	if (form) {
-		form.success === true ? toast.success(form.message) : toast.error(form.message);
+		form.success === true ? toast.success(form.message) : toast.error(form.message)
 	}
 
-	const { expenses } = data;
-	const { categories } = data;
+	const { expenses } = data
+	const { categories } = data
 
-	let expensesData;
-	let error;
+	let expensesData
+	let error
 
-	let td = [];
+	let td = []
 
 	if (expenses.data !== null) {
-		expensesData = expenses.data.get_all_expense_records;
+		expensesData = expenses.data.get_all_expense_records
 
 		td = expensesData.map((item) => {
 			return {
@@ -32,12 +33,16 @@
 				category: item.category,
 				amount: item.amount.toFixed(2),
 				date: moment.unix(item.date_of_action).format('YYYY-MM-DD').toString()
-			};
-		});
+			}
+		})
 	} else {
-		error = expenses.errors[0].message;
+		error = expenses.errors[0].message
 	}
 </script>
+
+<svelte:head>
+	<title>{config.title} | Expenses</title>
+</svelte:head>
 
 <section class="pt-20 pb-8 px-6 sm:px-4">
 	<div class="flex justify-between items-center my-4 gap-4 sm:gap-0">

@@ -12,8 +12,8 @@ font-family: 'Permanent Marker', cursive;
 @tailwind components;
 @tailwind utilities;
 
-section {
-	min-height: 77vh !important;
+main {
+	min-height: 85vh !important;
 }
 
 .header-one {

@@ -1,27 +1,28 @@
 <script>
-	import { toggle } from '$lib/store.js';
-	import EditMode from '$lib/components/globals/EditMode.svelte';
-	import toast, { Toaster } from 'svelte-french-toast';
-	import NewRecord from '$lib/components/customers/NewRecord.svelte';
-	import CustomersTable from '$lib/components/customers/CustomersTable.svelte';
-	import TableEditable from '$lib/components/customers/TableEditable.svelte';
+	import { toggle } from '$lib/store.js'
+	import EditMode from '$lib/components/globals/EditMode.svelte'
+	import toast, { Toaster } from 'svelte-french-toast'
+	import NewRecord from '$lib/components/customers/NewRecord.svelte'
+	import CustomersTable from '$lib/components/customers/CustomersTable.svelte'
+	import TableEditable from '$lib/components/customers/TableEditable.svelte'
+	import * as config from '$lib/config'
 
-	export let data;
-	export let form;
+	export let data
+	export let form
 
 	if (form) {
-		form.success === true ? toast.success(form.message) : toast.error(form.message);
+		form.success === true ? toast.success(form.message) : toast.error(form.message)
 	}
 
-	const { customers } = data;
+	const { customers } = data
 
-	let earningsData;
-	let error;
+	let earningsData
+	let error
 
-	let td = [];
+	let td = []
 
 	if (customers.data !== null) {
-		earningsData = customers.data.get_all_customer_records;
+		earningsData = customers.data.get_all_customer_records
 
 		td = earningsData.map((item) => {
 			return {
@@ -31,12 +32,16 @@
 				phone: item.phone,
 				trip: item.trip,
 				package: item.package
-			};
-		});
+			}
+		})
 	} else {
-		error = customers.errors[0].message;
+		error = customers.errors[0].message
 	}
 </script>
+
+<svelte:head>
+	<title>{config.title} | Customers</title>
+</svelte:head>
 
 <section class="pt-20 pb-8 px-6 sm:px-4">
 	<div class="flex justify-between items-center my-4 gap-4 sm:gap-0">

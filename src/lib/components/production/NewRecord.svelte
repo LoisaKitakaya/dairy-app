@@ -15,7 +15,7 @@
 			<label for="name" class="px-1">Morning</label>
 			<input
 				type="number"
-                step="0.01"
+				step="0.01"
 				value="0.00"
 				name="morning"
 				placeholder="morning production"
@@ -26,7 +26,7 @@
 			<label for="name" class="px-1">Afternoon</label>
 			<input
 				type="number"
-                step="0.01"
+				step="0.01"
 				value="0.00"
 				name="noon"
 				placeholder="afternoon production"
@@ -37,7 +37,7 @@
 			<label for="name" class="px-1">Evening</label>
 			<input
 				type="number"
-                step="0.01"
+				step="0.01"
 				value="0.00"
 				name="evening"
 				placeholder="evening production"

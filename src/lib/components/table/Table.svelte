@@ -1,5 +1,5 @@
 <script>
-	import { Subscribe, Render } from 'svelte-headless-table';
+	import { Subscribe, Render } from 'svelte-headless-table'
 
 	export let headerRows,
 		tableAttrs,
@@ -11,7 +11,7 @@
 		pageCount,
 		pageSize,
 		hasNextPage,
-		hasPreviousPage;
+		hasPreviousPage
 </script>
 
 <table class="table">
