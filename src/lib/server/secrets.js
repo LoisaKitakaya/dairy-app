@@ -1,4 +1,4 @@
-import { PUBLIC_SECRET_KEY, PUBLIC_BACKEND_API } from '$env/static/public'
+import { SECRET_KEY, BACKEND_API } from '$env/static/private'
 
-export const salt = PUBLIC_SECRET_KEY
-export const backendApi = PUBLIC_BACKEND_API
+export const salt = SECRET_KEY
+export const backendApi = BACKEND_API
